@@ -3,6 +3,8 @@ export type ImageCrop = {
   height: string
   top: string
   left: string
+  objectFit?: 'cover' | 'contain'
+  objectPosition?: string
 }
 
 export type OptimizedSrc = {

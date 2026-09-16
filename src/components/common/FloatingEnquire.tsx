@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useLocation } from 'react-router'
 import { Button } from '@/components/common/Button'
 import { useEnquiryModal } from '@/hooks/useEnquiryModal'
+import { homeSectionIds } from '@/config/navigation'
 
 export function FloatingEnquire() {
   const { pathname } = useLocation()
@@ -9,24 +10,26 @@ export function FloatingEnquire() {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    const banner = document.getElementById('home-banner')
+    const banner = document.getElementById(homeSectionIds.banner)
     if (!banner) {
       setVisible(false)
       return
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        const scrolledPast =
-          !entry.isIntersecting && entry.boundingClientRect.bottom <= 0
-        setVisible(scrolledPast)
-      },
-      { threshold: 0 },
-    )
+    const update = () => {
+      const { top, bottom } = banner.getBoundingClientRect()
+      setVisible(top < 1 && bottom <= window.innerHeight + 1)
+    }
 
-    observer.observe(banner)
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    const resizeObserver = new ResizeObserver(update)
+    resizeObserver.observe(banner)
     return () => {
-      observer.disconnect()
+      window.removeEventListener('scroll', update)
+      window.removeEventListener('resize', update)
+      resizeObserver.disconnect()
       setVisible(false)
     }
   }, [pathname])

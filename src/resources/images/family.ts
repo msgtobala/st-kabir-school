@@ -14,7 +14,7 @@ export const classroom = {
   webp: classroomWebp,
   lqip: classroomLqip,
   width: 960,
-  height: 640,
+  height: 1220,
 } satisfies OptimizedSrc
 
 export const astronaut = {

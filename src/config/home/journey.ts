@@ -16,10 +16,10 @@ export const stages: Stage[] = [
       'Play-based learning that builds curiosity, social skills, and strong early foundations.',
     image: stageFoundation,
     imageCrop: {
-      width: '100.26%',
-      height: '106.72%',
-      top: '-6.66%',
-      left: '-0.13%',
+      width: '100%',
+      height: '106.44%',
+      top: '-0.07%',
+      left: '0',
     },
     cardClass: 'bg-stage-foundation',
     chipClass: 'bg-stage-foundation-chip',
@@ -59,7 +59,14 @@ export const stages: Stage[] = [
     description:
       'Expanding perspectives through inquiry, creativity, collaboration, and problem-solving.',
     image: stageMiddle,
-    imageCrop: { width: '100%', height: '106.44%', top: '-0.07%', left: '0' },
+    imageCrop: {
+      width: '100%',
+      height: '100%',
+      top: '0',
+      left: '0',
+      objectFit: 'cover',
+      objectPosition: 'bottom',
+    },
     cardClass: 'bg-stage-middle',
     chipClass: 'bg-stage-middle-chip',
     chips: [
@@ -78,7 +85,14 @@ export const stages: Stage[] = [
     description:
       'Developing critical thinking, leadership, academic excellence, and future-ready skills.',
     image: stageSecondary,
-    imageCrop: { width: '100%', height: '149.09%', top: '-24.6%', left: '0' },
+    imageCrop: {
+      width: '100%',
+      height: '100%',
+      top: '0',
+      left: '0',
+      objectFit: 'cover',
+      objectPosition: 'bottom',
+    },
     cardClass: 'bg-stage-secondary',
     chipClass: 'bg-stage-secondary-chip',
     chips: [

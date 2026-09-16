@@ -36,7 +36,7 @@ export const stageMiddle = {
   webp: middleWebp,
   lqip: middleLqip,
   width: 800,
-  height: 533,
+  height: 534,
 } satisfies OptimizedSrc
 
 export const stageSecondary = {
@@ -44,7 +44,7 @@ export const stageSecondary = {
   webp: secondaryWebp,
   lqip: secondaryLqip,
   width: 800,
-  height: 747,
+  height: 534,
 } satisfies OptimizedSrc
 
 export const stageSenior = {

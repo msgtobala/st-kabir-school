@@ -14,7 +14,7 @@ export const fieldTrips = {
   webp: fieldTripsWebp,
   lqip: fieldTripsLqip,
   width: 960,
-  height: 640,
+  height: 861,
 } satisfies OptimizedSrc
 
 export const competitions = {
@@ -22,7 +22,7 @@ export const competitions = {
   webp: competitionsWebp,
   lqip: competitionsLqip,
   width: 960,
-  height: 896,
+  height: 860,
 } satisfies OptimizedSrc
 
 export const creativeArts = {
@@ -30,5 +30,5 @@ export const creativeArts = {
   webp: creativeArtsWebp,
   lqip: creativeArtsLqip,
   width: 960,
-  height: 1312,
+  height: 861,
 } satisfies OptimizedSrc

@@ -138,14 +138,8 @@ export function HomeFamily() {
               >
                 <OptimizedImage
                   src={classroom}
-                  alt="Children building with blocks during a classroom activity"
-                  className="absolute max-w-none"
-                  style={{
-                    height: '101.6%',
-                    left: '0',
-                    top: '-0.11%',
-                    width: '106.21%',
-                  }}
+                  alt="A teacher and students sitting on a classroom rug during a group activity"
+                  className="absolute inset-0 size-full max-w-none object-cover object-top"
                 />
               </div>
               <FeatureTile tile={weekly} />

@@ -54,7 +54,10 @@ function StageCard({ stage }: { stage: Stage }) {
         <OptimizedImage
           src={stage.image}
           alt={stage.title}
-          className="absolute max-w-none"
+          className={cx(
+            'absolute max-w-none',
+            stage.imageCrop.objectFit === 'cover' && 'inset-0 size-full',
+          )}
           style={stage.imageCrop}
         />
       </div>

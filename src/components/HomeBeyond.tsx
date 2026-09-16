@@ -39,7 +39,11 @@ export function HomeBeyond() {
                 <OptimizedImage
                   src={activity.image}
                   alt={activity.title}
-                  className="absolute max-w-none"
+                  className={cx(
+                    'absolute max-w-none',
+                    activity.imageCrop.objectFit === 'cover' &&
+                      'inset-0 size-full',
+                  )}
                   style={activity.imageCrop}
                 />
               </div>

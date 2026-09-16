@@ -14,8 +14,7 @@ export function BrandLogo({ size = 'header' }: BrandLogoProps) {
     <Link
       to="/"
       aria-label="St. Kabir School, Ahmedabad"
-      data-hover="press"
-      className="flex shrink-0 items-center will-change-transform"
+      className="flex shrink-0 items-center"
     >
       <OptimizedImage
         src={logo}
