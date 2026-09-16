@@ -1,0 +1,61 @@
+import { type Educator } from '@/models/home/educators'
+import {
+  abanVariava,
+  deepaGupta,
+  hetalShukla,
+  kalpanaBhuptani,
+  monaNagori,
+} from '@/resources/images/educators'
+
+export const educators: Educator[] = [
+  {
+    id: 'deepa-gupta',
+    name: 'Deepa Gupta',
+    tenure: 'YOJ - 1989',
+    bio: 'Loving, polite and soft-spoken, yet firm with kids',
+    image: deepaGupta,
+    objectPosition: '70% 12%',
+    borderClass: 'border-stage-foundation-chip',
+    photoClass: 'bg-story-lemon',
+  },
+  {
+    id: 'aban-variava',
+    name: 'Aban Variava',
+    tenure: 'YOJ - 1995',
+    bio: 'Loving, trustworthy, and approachable — someone who understands each child individually.',
+    image: abanVariava,
+    objectPosition: '50% 12%',
+    borderClass: 'border-accent-pink',
+    photoClass: 'bg-story-blush',
+  },
+  {
+    id: 'kalpana-bhuptani',
+    name: 'Kalpana Bhuptani',
+    tenure: 'YOJ - 1999',
+    bio: 'I am warm & affectionate person who finds joy in nurturing little hearts',
+    image: kalpanaBhuptani,
+    objectPosition: '50% 82%',
+    borderClass: 'border-accent-green',
+    photoClass: 'bg-story-lime',
+  },
+  {
+    id: 'mona-nagori',
+    name: 'Mona Nagori',
+    tenure: 'YOJ - 2002',
+    bio: 'I am always positive and have lots of patience in me.',
+    image: monaNagori,
+    objectPosition: '50% 18%',
+    borderClass: 'border-coral',
+    photoClass: 'bg-story-lime',
+  },
+  {
+    id: 'hetal-shukla',
+    name: 'Hetal Shukla',
+    tenure: 'YOJ - 2024',
+    bio: 'Good communication skills, a strong work ethic, and a positive attitude.',
+    image: hetalShukla,
+    objectPosition: '50% 8%',
+    borderClass: 'border-accent-cyan',
+    photoClass: 'bg-[#edf9fc]',
+  },
+]

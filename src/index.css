@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+/* Local Fredoka — one variable face covers weights 300–700 at wdth 100 */
+@font-face {
+  font-family: "Fredoka";
+  src: url("./assets/fonts/Fredoka-Variable-Latin.woff2") format("woff2-variations"),
+    url("./assets/fonts/Fredoka-Variable-Latin.woff2") format("woff2");
+  font-weight: 300 700;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Fredoka";
+  src: url("./assets/fonts/Fredoka-Variable-LatinExt.woff2") format("woff2-variations"),
+    url("./assets/fonts/Fredoka-Variable-LatinExt.woff2") format("woff2");
+  font-weight: 300 700;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Arial metrics tuned to Fredoka so swap does not jump layout */
+@font-face {
+  font-family: "Fredoka Fallback";
+  src: local("Arial");
+  size-adjust: 110.92%;
+  ascent-override: 87.81%;
+  descent-override: 21.28%;
+  line-gap-override: 0%;
+}
+
+@theme {
+  --font-sans: "Fredoka", "Fredoka Fallback", ui-sans-serif, system-ui, sans-serif;
+
+  --color-canvas: #ffffff;
+  --color-cream: #f6f1ea;
+  --color-cream-soft: #fdf6ed;
+  --color-announcement: #000000;
+  --color-footer: #131313;
+  --color-ink: #0e172a;
+  --color-navy: #14213d;
+  --color-navy-soft: #1b2944;
+  --color-slate: #475569;
+  --color-muted: #687083;
+  --color-muted-dark: #4a5568;
+  --color-muted-mid: #3d4a5c;
+  --color-gray: #8d8e91;
+  --color-border: #d9d9d9;
+  --color-border-soft: #ced0d7;
+
+  --color-brand: #da070f;
+  --color-coral: #f37867;
+  --color-teal: #2b9a9a;
+
+  --color-stage-foundation: #fff8e5;
+  --color-stage-foundation-chip: #f7c653;
+  --color-stage-preparatory: #e9f3fa;
+  --color-stage-preparatory-chip: #a7dbff;
+  --color-stage-middle: #e5f5f0;
+  --color-stage-middle-chip: #b5e9d9;
+  --color-stage-secondary: #fff0e7;
+  --color-stage-secondary-chip: #f9d2ba;
+  --color-stage-senior: #eeeaf9;
+  --color-stage-senior-chip: #dacef9;
+
+  --color-value-think: rgba(221, 232, 192, 0.8);
+  --color-value-thrive: rgba(190, 230, 237, 0.6);
+  --color-value-become: rgba(169, 226, 176, 0.6);
+  --color-value-belong: rgba(255, 164, 190, 0.6);
+
+  --color-story-gold: #fcda8c;
+  --color-story-mint: #aae1b0;
+  --color-story-sky: #bde5ec;
+  --color-story-blush: #fff0f5;
+  --color-story-lemon: #fffbec;
+  --color-story-lime: #f2fae8;
+
+  --color-life-weekly: #a7dbff;
+  --color-life-weekly-text: #1366a1;
+  --color-life-bonding: #b5e9d9;
+  --color-life-bonding-text: #209471;
+  --color-life-family: #ffbfb6;
+  --color-life-family-text: #dd5b49;
+  --color-life-openhouse: #dacef9;
+  --color-life-openhouse-text: #4827a9;
+  --color-life-creative: #f4f8e3;
+  --color-life-creative-text: #889e2b;
+
+  --color-accent-pink: #e8528a;
+  --color-accent-cyan: #4ab8d4;
+  --color-accent-green: #8dc63f;
+  --color-accent-gold: #e6ad28;
+  --color-accent-indigo: #322b9a;
+  --color-accent-violet: #7c5cbf;
+  --color-accent-rose: #d55e5e;
+  --color-accent-mint: #b5dfd2;
+
+  --text-caption: 0.75rem;
+  --text-caption--line-height: 1.2;
+  --text-eyebrow: 0.875rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-body: 1rem;
+  --text-body--line-height: 1.4;
+  --text-lead: 1.25rem;
+  --text-lead--line-height: 1.4;
+  --text-title: 1.5rem;
+  --text-title--line-height: 1.2;
+  --text-subtitle: 1.75rem;
+  --text-subtitle--line-height: 1.2;
+  --text-section: 2rem;
+  --text-section--line-height: 1.2;
+  --text-display: 3rem;
+  --text-display--line-height: 1.1;
+  --text-display-lg: 3.5rem;
+  --text-display-lg--line-height: 1.1;
+  --text-hero: 4rem;
+  --text-hero--line-height: 1;
+  --text-hero--letter-spacing: -0.02em;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-2xl: 24px;
+  --radius-3xl: 40px;
+  --radius-pill: 50px;
+
+  --shadow-soft: 0px 2px 3px rgba(20, 33, 61, 0.06);
+  --shadow-card: 0px 6px 12px rgba(20, 33, 61, 0.06);
+  --shadow-teal: 0px 8px 14px rgba(43, 154, 154, 0.09);
+  --shadow-gold: 0px 6px 20px 0px rgba(247, 198, 83, 0.38);
+
+  --max-width-page: 90rem;
+  --spacing-gutter: 4.5rem;
+  --spacing-page: 5rem;
+  --breakpoint-wide: 90rem;
+}
+
+:root {
+  --text: var(--color-slate);
+  --text-h: var(--color-navy);
+  --bg: var(--color-canvas);
+  --border: var(--color-border);
+  --accent: var(--color-coral);
+  --accent-bg: color-mix(in srgb, var(--color-coral) 12%, white);
+  --accent-border: color-mix(in srgb, var(--color-coral) 50%, white);
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    font-variation-settings: "wdth" 100;
+    color: var(--color-navy);
+    background-color: var(--color-canvas);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: auto;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    overflow-x: hidden;
+    background-color: var(--color-canvas);
+    color: var(--color-navy);
+  }
+
+  #root {
+    min-height: 100svh;
+  }
+}
+
+@keyframes home-educators-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% / var(--marquee-copies, 4)));
+  }
+}
+
+.home-educators-marquee {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: home-educators-marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.home-educators-marquee-viewport:hover .home-educators-marquee,
+.home-educators-marquee:focus-within {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-educators-marquee {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+  }
+}
+
+.enquiry-dialog {
+  max-height: calc(100svh - 24px);
+}
+
+@media (min-width: 1024px) {
+  .enquiry-dialog {
+    max-height: calc(100svh - 1.5rem);
+  }
+}
+
+.enquiry-dialog::backdrop {
+  background: rgba(20, 33, 61, 0.48);
+}

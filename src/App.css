@@ -1,0 +1,15 @@
+.placeholder-page {
+  max-width: 720px;
+}
+
+.placeholder-kicker {
+  margin-bottom: 8px;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-coral);
+}
+
+.placeholder-page h1 {
+  margin: 0 0 16px;
+}
