@@ -9,8 +9,8 @@ const IMAGES = path.join(ROOT, 'src/assets/images')
 const MAX_WIDTH = {
   brand: 480,
   enquiry: 720,
-  hero: 1920,
-  day: 1920,
+  hero: 2880,
+  day: 2880,
   callout: 2560,
   journey: 800,
   beyond: 960,

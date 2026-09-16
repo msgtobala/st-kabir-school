@@ -7,6 +7,6 @@ export const heroBanner = {
   avif,
   webp,
   lqip,
-  width: 1536,
-  height: 1633,
+  width: 2880,
+  height: 2630,
 } satisfies OptimizedSrc

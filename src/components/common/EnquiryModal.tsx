@@ -143,20 +143,23 @@ export function EnquiryModalProvider({ children }: { children: ReactNode }) {
       >
         <div className="max-h-[min(44.4rem,calc(100svh-24px))] overflow-y-auto rounded-[24px] bg-canvas shadow-[0px_12px_32px_rgba(0,0,0,0.12)] lg:max-h-[min(44.4rem,calc(100svh-1.5rem))] lg:overflow-hidden lg:rounded-2xl lg:shadow-card">
           <div className="grid lg:grid-cols-[400px_minmax(0,1fr)]">
-            <div className="relative isolate overflow-hidden bg-stage-foundation lg:min-h-[44.4rem]">
-              <div className="relative h-[240px] overflow-hidden lg:absolute lg:inset-x-0 lg:top-0 lg:bottom-[103px] lg:h-auto">
-                <OptimizedImage
-                  src={enquiryPortrait}
-                  alt="A St. Kabir student writing in class"
-                  className="absolute inset-0 size-full max-w-none object-cover object-center"
-                />
+            <div className="relative overflow-hidden lg:min-h-[44.4rem]">
+              <div className="relative isolate h-[240px] overflow-hidden lg:absolute lg:inset-x-0 lg:top-0 lg:bottom-[103px] lg:h-auto">
+                <div className="absolute inset-0 z-[-1]">
+                  <OptimizedImage
+                    src={enquiryPortrait}
+                    alt="A St. Kabir student writing in class"
+                    className="absolute inset-0 size-full max-w-none object-cover object-center"
+                    style={{ zIndex: -1 }}
+                  />
+                </div>
                 <CloseButton
                   compact
                   onClick={close}
                   className="absolute top-4 right-4 z-10 flex lg:hidden"
                 />
               </div>
-              <div className="relative flex flex-col gap-3 bg-stage-foundation p-5 lg:absolute lg:inset-x-0 lg:bottom-0 lg:rounded-tl-[40px] lg:px-8 lg:pt-8 lg:pb-10">
+              <div className="relative z-10 flex flex-col gap-3 bg-stage-foundation p-5 lg:absolute lg:inset-x-0 lg:bottom-0 lg:rounded-tl-[40px] lg:px-8 lg:pt-8 lg:pb-10">
                 <div className="flex items-center justify-between gap-3 lg:block">
                   <h3 className="font-normal text-navy">
                     <span className="block max-w-[236px] text-[24px] leading-[22px] lg:hidden">

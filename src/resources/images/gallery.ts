@@ -134,15 +134,15 @@ export const abcClassroom = photo(
   abcClassroomAvif,
   abcClassroomWebp,
   abcClassroomLqip,
-  773,
-  1024,
+  1172,
+  952,
 )
 export const weeklyThemes = photo(
   weeklyThemesAvif,
   weeklyThemesWebp,
   weeklyThemesLqip,
-  770,
-  1024,
+  1172,
+  952,
 )
 export const scienceLab = photo(
   scienceLabAvif,

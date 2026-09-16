@@ -171,7 +171,7 @@ export const rowThree: GalleryPhoto[] = [
   {
     id: 'weekly-themes',
     src: weeklyThemes,
-    alt: 'Students during a weekly theme activity',
+    alt: 'Children tying a rakhi during a weekly theme celebration',
     boxWidth: 586,
     object: 'bottom',
   },

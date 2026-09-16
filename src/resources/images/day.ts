@@ -7,6 +7,6 @@ export const bannerDay = {
   avif,
   webp,
   lqip,
-  width: 1920,
-  height: 1136,
+  width: 2880,
+  height: 1704,
 } satisfies OptimizedSrc

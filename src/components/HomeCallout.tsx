@@ -79,11 +79,12 @@ export function HomeCallout() {
             <OptimizedImage
               src={calloutBanner}
               alt="A young student holding a magnifying glass and a book"
-              className="absolute left-0 max-w-none"
+              className="absolute left-0 z-[-1] max-w-none"
               style={{
                 height: '116.86%',
                 top: '-16.84%',
                 width: '155.07%',
+                zIndex: -1,
               }}
             />
             <CalloutArrow />
