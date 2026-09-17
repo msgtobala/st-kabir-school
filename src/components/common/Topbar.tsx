@@ -22,7 +22,7 @@ export function Topbar() {
           type="button"
           data-hover="press"
           onClick={enquiry.open}
-          className="inline-flex shrink-0 cursor-pointer items-center font-semibold uppercase whitespace-nowrap will-change-transform hover:opacity-80"
+          className="inline-flex shrink-0 cursor-pointer items-center font-semibold uppercase whitespace-nowrap will-change-transform outline-none hover:opacity-80 focus:outline-none focus-visible:outline-none"
         >
           Enquire now
           <span className="ml-1 hidden min-[360px]:inline" aria-hidden="true">

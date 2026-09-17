@@ -214,13 +214,23 @@
   }
 }
 
-.enquiry-dialog {
+.enquiry-dialog[open] {
+  display: flex;
+  flex-direction: column;
+  width: min(55.75rem, calc(100% - 24px));
+  max-width: min(55.75rem, calc(100% - 24px));
   max-height: calc(100svh - 24px);
+  max-height: calc(100dvh - 24px - env(safe-area-inset-bottom, 0px));
+  margin: auto;
+  overflow: auto;
+  overscroll-behavior: contain;
 }
 
 @media (min-width: 1024px) {
-  .enquiry-dialog {
-    max-height: calc(100svh - 1.5rem);
+  .enquiry-dialog[open] {
+    height: min(44.4rem, calc(100dvh - 1.5rem));
+    max-height: min(44.4rem, calc(100dvh - 1.5rem));
+    overflow: hidden;
   }
 }
 

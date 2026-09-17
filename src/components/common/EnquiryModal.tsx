@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from 'react'
+import { useNavigate } from 'react-router'
 import { OptimizedImage } from '@/components/common/OptimizedImage'
 import { Button } from '@/components/common/Button'
 import { enquiryBranches, enquiryCopy, enquiryGrades } from '@/config/enquiry'
@@ -86,9 +87,17 @@ const inputClass =
 export function EnquiryModalProvider({ children }: { children: ReactNode }) {
   const dialogRef = useRef<HTMLDialogElement>(null)
   const titleId = useId()
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
   const [values, setValues] = useState<EnquiryFormValues>(emptyForm)
+  const canSubmit = Boolean(
+    values.childName.trim() &&
+      values.branch &&
+      values.age.trim() &&
+      values.grade &&
+      values.parentName.trim() &&
+      values.mobile.trim(),
+  )
 
   const close = () => {
     dialogRef.current?.close()
@@ -96,7 +105,6 @@ export function EnquiryModalProvider({ children }: { children: ReactNode }) {
   }
 
   const openModal = () => {
-    setSubmitted(false)
     setValues(emptyForm)
     setOpen(true)
     dialogRef.current?.showModal()
@@ -122,7 +130,9 @@ export function EnquiryModalProvider({ children }: { children: ReactNode }) {
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setSubmitted(true)
+    if (!canSubmit) return
+    close()
+    navigate('/thank-you')
   }
 
   const set =
@@ -137,15 +147,15 @@ export function EnquiryModalProvider({ children }: { children: ReactNode }) {
       <dialog
         ref={dialogRef}
         aria-labelledby={titleId}
-        className="enquiry-dialog m-auto w-[min(55.75rem,calc(100%-24px))] max-w-none border-0 bg-transparent p-0"
+        className="enquiry-dialog m-auto max-w-none border-0 bg-transparent p-0"
         onClick={(event) => {
           if (event.target === event.currentTarget) close()
         }}
       >
-        <div className="max-h-[min(44.4rem,calc(100svh-24px))] overflow-y-auto rounded-[24px] bg-canvas shadow-[0px_12px_32px_rgba(0,0,0,0.12)] lg:max-h-[min(44.4rem,calc(100svh-1.5rem))] lg:overflow-hidden lg:rounded-2xl lg:shadow-card">
-          <div className="grid lg:grid-cols-[400px_minmax(0,1fr)]">
-            <div className="relative overflow-hidden lg:min-h-[44.4rem]">
-              <div className="relative isolate h-[240px] overflow-hidden lg:absolute lg:inset-x-0 lg:top-0 lg:bottom-[103px] lg:h-auto">
+        <div className="flex min-h-0 w-full flex-1 flex-col overflow-y-auto rounded-[24px] bg-canvas shadow-[0px_12px_32px_rgba(0,0,0,0.12)] lg:h-full lg:overflow-hidden lg:rounded-2xl lg:shadow-card">
+          <div className="flex min-h-0 flex-1 flex-col lg:grid lg:h-full lg:grid-cols-[400px_minmax(0,1fr)] lg:overflow-hidden">
+            <div className="relative shrink-0 overflow-hidden lg:h-full lg:min-h-0">
+              <div className="relative isolate h-[min(200px,28svh)] overflow-hidden sm:h-[min(240px,32svh)] lg:absolute lg:inset-x-0 lg:top-0 lg:bottom-[103px] lg:h-auto">
                 <div className="absolute inset-0 z-[-1]">
                   <OptimizedImage
                     src={enquiryPortrait}
@@ -206,14 +216,14 @@ export function EnquiryModalProvider({ children }: { children: ReactNode }) {
             </div>
 
             <form
-              className="relative flex flex-col gap-6 p-5 lg:h-[44.4rem] lg:gap-0 lg:overflow-y-auto lg:px-10 lg:py-9"
+              className="relative flex flex-col gap-6 p-5 lg:h-full lg:min-h-0 lg:flex-1 lg:gap-0 lg:overflow-hidden lg:px-10 lg:py-9"
               onSubmit={onSubmit}
             >
               <CloseButton
                 onClick={close}
-                className="absolute top-5 right-5 hidden lg:flex"
+                className="absolute top-5 right-5 z-10 hidden lg:flex"
               />
-              <div className="flex flex-col gap-2 lg:contents">
+              <div className="flex shrink-0 flex-col gap-2 pr-12">
                 <p className="text-[12px] font-medium tracking-[0.18px] text-coral uppercase">
                   {enquiryCopy.kicker}
                 </p>
@@ -228,27 +238,7 @@ export function EnquiryModalProvider({ children }: { children: ReactNode }) {
                 </p>
               </div>
 
-              {submitted ? (
-                <div className="mt-8">
-                  <p className="font-medium text-lg text-navy">
-                    {enquiryCopy.successTitle}
-                  </p>
-                  <p className="mt-2 text-sm leading-[1.45] text-slate">
-                    {enquiryCopy.successBody}
-                  </p>
-                  <Button
-                    type="button"
-                    variant="primary"
-                    className="mt-8 w-full"
-                    showIcon={false}
-                    onClick={close}
-                  >
-                    Close
-                  </Button>
-                </div>
-              ) : (
-                <>
-                <div className="flex w-full flex-col gap-4 lg:mt-6">
+              <div className="flex w-full flex-col gap-4 lg:mt-6 lg:min-h-0 lg:flex-1 lg:overflow-y-auto lg:overscroll-contain lg:pr-4 lg:[scrollbar-gutter:stable]">
                   <Field id="enquiry-child" label="Child's Name" required>
                     <input
                       id="enquiry-child"
@@ -383,11 +373,12 @@ export function EnquiryModalProvider({ children }: { children: ReactNode }) {
                     </Field>
                   </div>
                 </div>
-                <div className="flex w-full flex-col items-center gap-3 lg:mt-6">
+                <div className="flex w-full flex-col items-center gap-3 lg:mt-6 lg:shrink-0">
                     <Button
                       type="submit"
                       variant="primary"
                       showIcon={false}
+                      disabled={!canSubmit}
                       className="h-12 w-full gap-2 rounded-[24px] !px-8 py-[14px] text-[15px] shadow-[0px_4px_6px_rgba(243,120,103,0.2)] sm:!px-8"
                     >
                       {enquiryCopy.submit}
@@ -405,8 +396,6 @@ export function EnquiryModalProvider({ children }: { children: ReactNode }) {
                       {enquiryCopy.footnote}
                     </p>
                   </div>
-                </>
-              )}
             </form>
           </div>
         </div>

@@ -37,6 +37,9 @@ function HashSectionScroller() {
 }
 
 export function Layout() {
+  const { pathname } = useLocation()
+  const isThankYou = pathname === '/thank-you'
+
   return (
     <EnquiryModalProvider>
       <div className="flex min-h-svh flex-col bg-canvas">
@@ -46,7 +49,7 @@ export function Layout() {
         <main className="flex-1">
           <Outlet />
         </main>
-        <Footer />
+        {isThankYou ? null : <Footer />}
         <FloatingEnquire />
       </div>
     </EnquiryModalProvider>

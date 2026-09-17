@@ -10,6 +10,7 @@ const MAX_WIDTH = {
   brand: 480,
   enquiry: 720,
   hero: 2880,
+  'thank-you': 2020,
   day: 2880,
   callout: 2560,
   journey: 800,

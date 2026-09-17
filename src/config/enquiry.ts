@@ -21,7 +21,9 @@ export const enquiryCopy = {
     'Discover a nurturing environment where your child learns, grows and belongs.',
   submit: 'Submit Enquiry',
   footnote: 'Our admissions team will connect with you shortly.',
-  successTitle: 'Thank you for your enquiry',
-  successBody:
-    'Our admissions team will connect with you shortly to help you take the next step.',
+  thankYouTitle: ['Thank You', 'for Your Admission Inquiry!'] as const,
+  thankYouBody: [
+    'We have successfully received your application details.',
+    'Our admissions team will review your submission and contact you shortly regarding the next steps.',
+  ] as const,
 } as const
