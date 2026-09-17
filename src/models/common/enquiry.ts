@@ -1,5 +1,6 @@
 export type EnquiryFormValues = {
   childName: string
+  branch: string
   age: string
   grade: string
   parentName: string

@@ -5,6 +5,12 @@ export const enquiryGrades = [
   'Senior KG',
 ] as const
 
+export const enquiryBranches = [
+  'Drive In (CBSE)',
+  'Navrangapura (CBSE)',
+  'Naranpura (Gujarat Board)',
+] as const
+
 export const enquiryCopy = {
   kicker: 'Admission Enquiry',
   title: "Let's Start Your Child's Journey",

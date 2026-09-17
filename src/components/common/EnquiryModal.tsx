@@ -1,7 +1,7 @@
 import { useEffect, useId, useRef, useState, type FormEvent, type ReactNode } from 'react'
 import { OptimizedImage } from '@/components/common/OptimizedImage'
 import { Button } from '@/components/common/Button'
-import { enquiryCopy, enquiryGrades } from '@/config/enquiry'
+import { enquiryBranches, enquiryCopy, enquiryGrades } from '@/config/enquiry'
 import { EnquiryModalContext } from '@/hooks/useEnquiryModal'
 import { cx } from '@/lib/cx'
 import type { EnquiryFormValues } from '@/models/common/enquiry'
@@ -10,6 +10,7 @@ import { enquiryPortrait } from '@/resources/images/enquiry'
 
 const emptyForm: EnquiryFormValues = {
   childName: '',
+  branch: '',
   age: '',
   grade: '',
   parentName: '',
@@ -205,7 +206,7 @@ export function EnquiryModalProvider({ children }: { children: ReactNode }) {
             </div>
 
             <form
-              className="relative flex flex-col gap-6 p-5 lg:gap-0 lg:px-10 lg:py-9"
+              className="relative flex flex-col gap-6 p-5 lg:h-[44.4rem] lg:gap-0 lg:overflow-y-auto lg:px-10 lg:py-9"
               onSubmit={onSubmit}
             >
               <CloseButton
@@ -259,6 +260,40 @@ export function EnquiryModalProvider({ children }: { children: ReactNode }) {
                       onChange={set('childName')}
                       className={inputClass}
                     />
+                  </Field>
+                  <Field id="enquiry-branch" label="Select Branch" required>
+                    <span className="relative block w-full">
+                      <select
+                        id="enquiry-branch"
+                        name="branch"
+                        required
+                        value={values.branch}
+                        onChange={set('branch')}
+                        className={cx(
+                          inputClass,
+                          'appearance-none pr-10',
+                          !values.branch && 'text-[#94a3b8]',
+                        )}
+                      >
+                        <option value="" disabled>
+                          Select branch
+                        </option>
+                        {enquiryBranches.map((branch) => (
+                          <option key={branch} value={branch}>
+                            {branch}
+                          </option>
+                        ))}
+                      </select>
+                      <span className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2">
+                        <img
+                          src={chevronDown}
+                          alt=""
+                          width={16}
+                          height={16}
+                          className="absolute inset-0 block size-full max-w-none"
+                        />
+                      </span>
+                    </span>
                   </Field>
                   <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                     <Field id="enquiry-age" label="Age" required>

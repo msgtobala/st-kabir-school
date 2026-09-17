@@ -54,7 +54,7 @@ export const stages: Stage[] = [
   },
   {
     id: 'middle',
-    age: 'Age 11–14 years',
+    age: 'Age 11–13 years',
     title: 'Middle School',
     description:
       'Expanding perspectives through inquiry, creativity, collaboration, and problem-solving.',
@@ -80,7 +80,7 @@ export const stages: Stage[] = [
   },
   {
     id: 'secondary',
-    age: 'Age 15–18 years',
+    age: 'Age 14–15 years',
     title: 'Secondary School',
     description:
       'Developing critical thinking, leadership, academic excellence, and future-ready skills.',
