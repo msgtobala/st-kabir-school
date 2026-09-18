@@ -20,4 +20,4 @@ export const router = createBrowserRouter([
       { path: 'thank-you', Component: ThankYouPage },
     ],
   },
-])
+], { basename: import.meta.env.BASE_URL.replace(/\/$/, '') || '/' })
